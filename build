@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e
+
+../emscripten/em++ -O1 -g4 --bind -o embind_audio.html embind_audio.cpp
+../emscripten/em++ -s ASM_JS=1 -g4 -O1 -Wall -Werror --bind -o oscillator.html oscillator.cpp
+../emscripten/em++ -s RETAIN_COMPILER_SETTINGS=1 -O0 -g4 --bind -o bindings.js bindings.cpp
